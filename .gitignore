@@ -1,0 +1,11 @@
+gnore object files and binaries
+*.o
+*.out
+*.exe
+*.bin
+*.elf
+ebpf-o11y
+
+# For your eBPF project
+bpf/*.o
+
