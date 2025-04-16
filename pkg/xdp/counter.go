@@ -11,7 +11,7 @@ import (
 	"github.com/cilium/ebpf/rlimit"
 )
 
-//go:generate go run github.com/cilium/ebpf/cmd/bpf2go -target bpfel,bpfeb -cc clang counter ../../bpf/counter.bpf.c  -- -I../../bpf/headers -Wall -O2
+//go:generate bpf2go -target bpfel,bpfeb -cc clang counter ../../bpf/counter.bpf.c  -- -I../../bpf/headers -Wall -O2
 
 func LoadXDP() {
 	// remove rlimit for kernel versions <5.11
