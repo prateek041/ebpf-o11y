@@ -1,11 +1,18 @@
-gnore object files and binaries
-*.o
-*.out
-*.exe
-*.bin
-*.elf
-ebpf-o11y
+# Binaries
+/bin/
+/ebpf-o11y
 
-# For your eBPF project
-bpf/*.o
+# Generated eBPF files
+*_bpfel.go
+*_bpfel.o
+*_bpfeb.go
+*_bpfeb.o
+
+# Go build cache
+*.test
+*.out
+
+# OS-specific files
+.DS_Store
+Thumbs.db
 
