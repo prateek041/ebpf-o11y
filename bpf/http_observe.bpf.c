@@ -1,15 +1,15 @@
-#include <linux/bpf.h>
 #include <bpf/bpf_helpers.h>
+#include <linux/bpf.h>
 
 // SEC macro defining which user-space function we want to attach
-// track_request function to. We are attaching it to ServeHTTP
-// standard function in the net/http library. Which get triggers
+// track_request function to. We are attaching it to healthHandler
+// function in the source of sample http server. Which get triggers
 // on multiple occasions like.
-// - When user hits our server (DefaultServeMux.ServeHTTP)
 // - A Handler serves request for a route.
 // You can read the net/http documentation for more.
-SEC("uprobe/healthHandler")
-int track_request() {
+
+SEC("uprobe/readContinuedLineSlice")
+int track_request(struct pt_regs *ctx) {
   // For simplicity,
   bpf_printk("serveHTTP triggered");
   return 0;
