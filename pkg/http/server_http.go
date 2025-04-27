@@ -8,7 +8,7 @@ import (
 	"github.com/cilium/ebpf/rlimit"
 )
 
-//go:generate bpf2go -target bpfel,bpfeb -cc clang server ../../bpf/http_observe.bpf.c  -- -I../../bpf/headers -Wall -O2
+//go:generate bpf2go -target bpfel,bpfeb -cc clang server ../../bpf/http_observe.bpf.c  -- -I../../bpf/bpfcore/ -Wall -O2
 
 // memory offset of the function we are attaching UProbe to.
 const SymbolName = "main.healthHandler"
